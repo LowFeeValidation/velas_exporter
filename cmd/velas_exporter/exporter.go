@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"flag"
-	"github.com/certusone/solana_exporter/pkg/rpc"
+	"github.com/lowfeevalidation/velas_exporter/pkg/rpc"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"net/http"
@@ -17,7 +17,7 @@ const (
 )
 
 var (
-	rpcAddr = flag.String("rpcURI", "", "Solana RPC URI (including protocol and path)")
+	rpcAddr = flag.String("rpcURI", "", "Velas RPC URI (including protocol and path)")
 	addr    = flag.String("addr", ":8080", "Listen address")
 )
 
@@ -39,23 +39,23 @@ func NewSolanaCollector(rpcAddr string) *solanaCollector {
 	return &solanaCollector{
 		rpcClient: rpc.NewRPCClient(rpcAddr),
 		totalValidatorsDesc: prometheus.NewDesc(
-			"solana_active_validators",
+			"velas_active_validators",
 			"Total number of active validators by state",
 			[]string{"state"}, nil),
 		validatorActivatedStake: prometheus.NewDesc(
-			"solana_validator_activated_stake",
+			"velas_validator_activated_stake",
 			"Activated stake per validator",
 			[]string{"pubkey", "nodekey"}, nil),
 		validatorLastVote: prometheus.NewDesc(
-			"solana_validator_last_vote",
+			"velas_validator_last_vote",
 			"Last voted slot per validator",
 			[]string{"pubkey", "nodekey"}, nil),
 		validatorRootSlot: prometheus.NewDesc(
-			"solana_validator_root_slot",
+			"velas_validator_root_slot",
 			"Root slot per validator",
 			[]string{"pubkey", "nodekey"}, nil),
 		validatorDelinquent: prometheus.NewDesc(
-			"solana_validator_delinquent",
+			"velas_validator_delinquent",
 			"Whether a validator is delinquent",
 			[]string{"pubkey", "nodekey"}, nil),
 	}
