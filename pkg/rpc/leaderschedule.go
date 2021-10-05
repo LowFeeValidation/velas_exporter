@@ -16,7 +16,7 @@ type (
 	}
 )
 
-// https://docs.solana.com/developing/clients/jsonrpc-api#getleaderschedule
+// https://docs.velas.com/apps/jsonrpc-api#getleaderschedule
 func (c *RPCClient) GetLeaderSchedule(ctx context.Context, epochSlot int64) (LeaderSchedule, error) {
 	body, err := c.rpcRequest(ctx, formatRPCRequest("getLeaderSchedule", []interface{}{epochSlot}))
 	if err != nil {

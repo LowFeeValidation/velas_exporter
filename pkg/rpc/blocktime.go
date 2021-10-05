@@ -14,7 +14,7 @@ type (
 	}
 )
 
-// https://docs.solana.com/developing/clients/jsonrpc-api#getblocktime
+// https://docs.velas.com/apps/jsonrpc-api#getblocktime
 func (c *RPCClient) GetBlockTime(ctx context.Context, slot int64) (int64, error) {
 	body, err := c.rpcRequest(ctx, formatRPCRequest("getBlockTime", []interface{}{slot}))
 	if err != nil {

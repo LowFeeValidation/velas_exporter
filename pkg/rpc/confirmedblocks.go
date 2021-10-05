@@ -14,7 +14,7 @@ type (
 	}
 )
 
-// https://docs.solana.com/developing/clients/jsonrpc-api#getconfirmedblocks
+// https://docs.velas.com/apps/jsonrpc-api#getconfirmedblocks
 func (c *RPCClient) GetConfirmedBlocks(ctx context.Context, startSlot, endSlot int64) ([]int64, error) {
 	body, err := c.rpcRequest(ctx, formatRPCRequest("getConfirmedBlocks", []interface{}{startSlot, endSlot}))
 	if err != nil {

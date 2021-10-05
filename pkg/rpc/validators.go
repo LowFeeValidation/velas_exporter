@@ -28,7 +28,7 @@ type (
 	}
 )
 
-// https://docs.solana.com/developing/clients/jsonrpc-api#getvoteaccounts
+// https://docs.velas.com/apps/jsonrpc-api#getvoteaccounts
 func (c *RPCClient) GetVoteAccounts(ctx context.Context, commitment Commitment) (*GetVoteAccountsResponse, error) {
 	body, err := c.rpcRequest(ctx, formatRPCRequest("getVoteAccounts", []interface{}{commitment}))
 	if err != nil {
