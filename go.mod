@@ -1,4 +1,4 @@
-module github.com/certusone/solana_exporter
+module github.com/lowfeevalidation/velas_exporter
 
 go 1.13
 
