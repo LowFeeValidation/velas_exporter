@@ -1,41 +1,37 @@
-# solana_exporter
+# velas_exporter
 
-solana_exporter exports basic monitoring data from a Solana node.
-
-<img src="https://i.imgur.com/2pIXLyU.png" width="550px" alt="" />
-
-Docker images are available on [Docker Hub](https://hub.docker.com/r/certusone/solana_exporter).
+velas_exporter exports basic monitoring data from a velas node.
 
 ## Metrics
 
 Metrics tracked with confirmation level `recent`:
 
-- **solana_validator_root_slot** - Latest root seen by each validator.
-- **solana_validator_last_vote** - Latest vote by each validator (not necessarily on the majority fork!)
-- **solana_validator_delinquent** - Whether node considers each validator to be delinquent.
-- **solana_validator_activated_stake**  - Active stake for each validator. 
-- **solana_active_validators** - Total number of active/delinquent validators.
+- **velas_validator_root_slot** - Latest root seen by each validator.
+- **velas_validator_last_vote** - Latest vote by each validator (not necessarily on the majority fork!)
+- **velas_validator_delinquent** - Whether node considers each validator to be delinquent.
+- **velas_validator_activated_stake**  - Active stake for each validator. 
+- **velas_active_validators** - Total number of active/delinquent validators.
 
 Metrics tracked with confirmation level `max`:
 
-- **solana_leader_slots_total** - Number of leader slots per leader, grouped by skip status.
-- **solana_confirmed_epoch_first_slot** - Current epoch's first slot.
-- **solana_confirmed_epoch_last_slot** - Current epoch's last slot.
-- **solana_confirmed_epoch_number** - Current epoch.
-- **solana_confirmed_slot_height** - Last confirmed slot height observed.
-- **solana_confirmed_transactions_total** - Total number of transactions processed since genesis.
+- **velas_leader_slots_total** - Number of leader slots per leader, grouped by skip status.
+- **velas_confirmed_epoch_first_slot** - Current epoch's first slot.
+- **velas_confirmed_epoch_last_slot** - Current epoch's last slot.
+- **velas_confirmed_epoch_number** - Current epoch.
+- **velas_confirmed_slot_height** - Last confirmed slot height observed.
+- **velas_confirmed_transactions_total** - Total number of transactions processed since genesis.
 
 ## Command line arguments
 
 You typically only need to set the RPC URL, pointing to one of your own nodes:
 
-    ./solana_exporter -rpcURI=http://yournode:8899
+    ./velas_exporter -rpcURI=http://yournode:8899
     
 If you want verbose logs, specify `-v=<num>`. Higher verbosity means more debug output. For most users, the default
 verbosity level is fine. If you want detailed log output for missed blocks, run with `-v=1`.
 
 ```
-Usage of solana_exporter:
+Usage of velas_exporter:
   -add_dir_header
         If true, adds the file directory to the header of the log messages
   -addr string
@@ -55,7 +51,7 @@ Usage of solana_exporter:
   -one_output
         If true, only write logs to their native severity level (vs also writing to each lower severity level
   -rpcURI string
-        Solana RPC URI (including protocol and path)
+        velas RPC URI (including protocol and path)
   -skip_headers
         If true, avoid header prefixes in the log messages
   -skip_log_headers
